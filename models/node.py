@@ -60,7 +60,16 @@ class Node:
 
     def avg(self):
         return self.get_sum() / self.length()
-
+    
+    def inorder_traversal(self):
+        res = []
+        if self.left:
+            res.extend(self.left.inorder_traversal())
+        res.append(self.value)
+        if self.right:
+            res.extend(self.right.inorder_traversal())
+        return res
+    
     def print(self, space=0):
         space += 10
         ret = ''

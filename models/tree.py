@@ -29,6 +29,17 @@ class Tree:
     def avg(self):
         if self.root:
             return self.root.avg()
+    
+    def inorder_traversal(self):
+        if self.root:
+            return self.root.inorder_traversal()
+    
+    def median(self):
+        traversal = self.inorder_traversal()
+        traversal_len = len(traversal)
+        if traversal_len % 2:
+            return traversal[(traversal_len - 1) // 2]
+        return (traversal[traversal_len // 2 - 1] + traversal[traversal_len // 2]) / 2
 
     def get_sum(self):
         if self.root:
