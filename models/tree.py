@@ -25,6 +25,10 @@ class Tree:
         if self.root:
             return self.root.length()
         return 0
+    
+    def avg(self):
+        if self.root:
+            return self.root.avg()
 
     def get_sum(self):
         if self.root:

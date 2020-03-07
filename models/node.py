@@ -58,6 +58,9 @@ class Node:
             return 1 + left_levels
         return 1 + right_levels
 
+    def avg(self):
+        return self.get_sum() / self.length()
+
     def print(self, space=0):
         space += 10
         ret = ''
