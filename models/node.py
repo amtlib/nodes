@@ -44,5 +44,31 @@ class Node:
             counter += self.right.length()
         return counter
     
+    def get_levels(self):
+        if self.left:
+            left_levels = self.left.get_levels()
+        else:
+            left_levels = 0
+        if self.right:
+            right_levels = self.right.get_levels() if self.left else 0
+        else:
+            right_levels = 0
+
+        if left_levels > right_levels:
+            return 1 + left_levels
+        return 1 + right_levels
+
+    def print(self, space=0):
+        space += 10
+        ret = ''
+        if self.right:
+            ret += self.right.print(space)
+        ret += "\n"
+        ret += " " * (space - 10)
+        ret += str(self.value)
+        if self.left:
+            ret += self.left.print(space)
+        return ret
+
     def __str__(self):
-        return '{} <- {} -> {}'.format(self.left, self.value, self.right)
+        return self.print()

@@ -3,6 +3,12 @@ from .node import Node
 class Tree:
     def __init__(self):
         self.root = None
+
+    def __str__(self):
+        return str(self.root)
+
+    def get_levels(self):
+        return self.root.get_levels()
     
     def find(self, value):
         if self.root:
