@@ -22,6 +22,20 @@ class Node:
         if self.left and value < self.value:
             return self.left.find(value)
 
+    def add_value(self, value):
+        if value >= self.value:
+            if self.right:
+                self.right.add_value(value)
+            else:
+                self.right = Node(value)
+                return self.right
+        else:
+            if self.left:
+                self.left.add_value(value)
+            else:
+                self.left = Node(value)
+                return self.left
+
     def length(self):
         counter = 1
         if self.left:
