@@ -53,3 +53,17 @@ class Node:
         self.__value = value
 
         self.__add_to_sum(value)
+
+    def __update_node(self, node):
+        self.__count += node.__count
+        self.__sum += node.__sum
+
+        node.__parent = self
+
+    def set_left_node(self, node):
+        self.__left = node
+        self.__update_node(node)
+
+    def set_right_node(self, node):
+        self.__right = node
+        self.__update_node(node)
