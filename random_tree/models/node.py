@@ -61,9 +61,13 @@ class Node:
         node.__parent = self
 
     def set_left_node(self, node):
+        if self.__left:
+            self.__left.__parent = None
         self.__left = node
         self.__update_node(node)
 
     def set_right_node(self, node):
+        if self.__right:
+            self.__right.__parent = None
         self.__right = node
         self.__update_node(node)
