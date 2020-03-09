@@ -1,4 +1,4 @@
-from models.tree import Tree
+from tree.tree import Tree
 
 
 # Create new tree
