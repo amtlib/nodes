@@ -79,7 +79,10 @@ class Node:
             ret += self.__right.__print(space)
         ret += "\n"
         ret += " " * (space - 10)
-        ret += str(self.__value)
+        if self.__value is None:
+            ret += 'X'
+        else:
+            ret += str(self.__value)
         if self.__left:
             ret += self.__left.__print(space)
         return ret
