@@ -23,4 +23,15 @@ class Node:
     def get_sum(self):
         return self.__sum
 
+    def __add_to_count(self):
+        if self.__parent:
+            self.__parent.__add_to_count()
+        self.__count += 1
     
+    def __sub_from_count(self):
+        if self.__parent:
+            self.__parent.__sub_from_count()
+        self.__count -= 1
+
+    def get_count(self):
+        return self.__count
