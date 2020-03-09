@@ -71,3 +71,18 @@ class Node:
             self.__right.__parent = None
         self.__right = node
         self.__update_node(node)
+
+    def __print(self, space=0):
+        space += 10
+        ret = ''
+        if self.__right:
+            ret += self.__right.__print(space)
+        ret += "\n"
+        ret += " " * (space - 10)
+        ret += str(self.__value)
+        if self.__left:
+            ret += self.__left.__print(space)
+        return ret
+
+    def __str__(self):
+        return self.__print()
