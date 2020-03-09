@@ -35,3 +35,21 @@ class Node:
 
     def get_count(self):
         return self.__count
+
+    def get_avg(self):
+        if self.__count:
+            return self.__sum / self.__count
+        return None
+
+    def set_value(self, value):
+        old_value = self.__value
+        # if updating
+        if old_value or old_value == 0:
+            self.__sub_from_sum(old_value)
+        # if new
+        else:
+            self.__add_to_count()
+
+        self.__value = value
+
+        self.__add_to_sum(value)
