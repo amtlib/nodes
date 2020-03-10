@@ -10,6 +10,9 @@ class Node:
         if value is not None:
             self.set_value(value)
 
+    def get_value(self):
+        return self.__value
+
     # sum
     def __add_to_sum(self, value):
         if self.__parent:
