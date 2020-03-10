@@ -1,5 +1,8 @@
 # Nodes
 
+## Requirements
+1. unittest
+
 ## Installation
 1. Create virtalenv
 ```
@@ -16,6 +19,11 @@
         activate.bat
         cd ../..
     ```
+
+3. Install requirements
+```
+    pip install -r requirements.txt
+```
 ## How to run?
 1. BST Tree
 ```
