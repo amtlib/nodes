@@ -31,7 +31,7 @@
 1. BST
 ```
     cd bst
-    python test_node.py
+    python test_tree.py
 ```
 2. Random Tree
 ```
