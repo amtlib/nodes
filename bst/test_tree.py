@@ -29,6 +29,9 @@ class TestTreeMethods(unittest.TestCase):
 
     def test_median(self):
         self.assertEqual(self.tree.get_median(), 4)
+    
+    def test_find(self):
+        self.assertEqual(self.tree.find(5).get_value(), 5)
 
 if __name__ == '__main__':
     unittest.main()

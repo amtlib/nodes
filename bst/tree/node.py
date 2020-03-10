@@ -61,6 +61,9 @@ class Node:
     def get_avg(self):
         return self.get_sum() / self.get_count()
     
+    def get_value(self):
+        return self.__value
+    
     def get_inorder_traversal(self):
         res = []
         if self.__left:
