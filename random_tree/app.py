@@ -23,6 +23,8 @@ print('Parent node values')
 print('Sum: ', node.get_sum())
 print('Avg: ', node.get_avg())
 print('Count: ', node.get_count())
+print('Median: ', node.get_median())
+
 
 print()
 
@@ -30,3 +32,4 @@ print('New node values')
 print('Sum: ', node2.get_sum())
 print('Avg: ', node2.get_avg())
 print('Count: ', node2.get_count())
+print('Median: ', node2.get_median())
