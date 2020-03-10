@@ -1,56 +1,56 @@
 class Node:
     def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+        self.__value = value
+        self.__left = None
+        self.__right = None
 
     def get_sum(self):
-        value = self.value
-        if self.left:
-            value += self.left.get_sum()
-        if self.right:
-            value += self.right.get_sum()
+        value = self.__value
+        if self.__left:
+            value += self.__left.get_sum()
+        if self.__right:
+            value += self.__right.get_sum()
         return value
 
     def find(self, value):
-        if value == self.value:
+        if value == self.__value:
             return self
 
-        if self.right and value > self.value:
-            return self.right.find(value)
+        if self.__right and value > self.__value:
+            return self.__right.find(value)
         
-        if self.left and value < self.value:
-            return self.left.find(value)
+        if self.__left and value < self.__value:
+            return self.__left.find(value)
 
     def add_value(self, value):
-        if value >= self.value:
-            if self.right:
-                self.right.add_value(value)
+        if value >= self.__value:
+            if self.__right:
+                self.__right.add_value(value)
             else:
-                self.right = Node(value)
-                return self.right
+                self.__right = Node(value)
+                return self.__right
         else:
-            if self.left:
-                self.left.add_value(value)
+            if self.__left:
+                self.__left.add_value(value)
             else:
-                self.left = Node(value)
-                return self.left
+                self.__left = Node(value)
+                return self.__left
 
     def length(self):
         counter = 1
-        if self.left:
-            counter += self.left.length()
-        if self.right:
-            counter += self.right.length()
+        if self.__left:
+            counter += self.__left.length()
+        if self.__right:
+            counter += self.__right.length()
         return counter
     
     def get_levels(self):
-        if self.left:
-            left_levels = self.left.get_levels()
+        if self.__left:
+            left_levels = self.__left.get_levels()
         else:
             left_levels = 0
-        if self.right:
-            right_levels = self.right.get_levels() if self.left else 0
+        if self.__right:
+            right_levels = self.__right.get_levels() if self.__left else 0
         else:
             right_levels = 0
 
@@ -63,24 +63,24 @@ class Node:
     
     def inorder_traversal(self):
         res = []
-        if self.left:
-            res.extend(self.left.inorder_traversal())
-        res.append(self.value)
-        if self.right:
-            res.extend(self.right.inorder_traversal())
+        if self.__left:
+            res.extend(self.__left.inorder_traversal())
+        res.append(self.__value)
+        if self.__right:
+            res.extend(self.__right.inorder_traversal())
         return res
     
-    def print(self, space=0):
+    def __print(self, space=0):
         space += 10
         ret = ''
-        if self.right:
-            ret += self.right.print(space)
+        if self.__right:
+            ret += self.__right.__print(space)
         ret += "\n"
         ret += " " * (space - 10)
-        ret += str(self.value)
-        if self.left:
-            ret += self.left.print(space)
+        ret += str(self.__value)
+        if self.__left:
+            ret += self.__left.__print(space)
         return ret
 
     def __str__(self):
-        return self.print()
+        return self.__print()
