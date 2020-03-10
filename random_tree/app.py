@@ -10,8 +10,7 @@ node.set_value(5)
 print(node)
 
 print('Create new node with value 3')
-node2 = Node()
-node2.set_value(3)
+node2 = Node(3)
 print(node2)
 
 print('Set node with value 3 as left node of the old one')

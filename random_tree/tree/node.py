@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self):
+    def __init__(self, value=None):
         self.__parent = None
         self.__left = None
         self.__right = None
@@ -7,6 +7,8 @@ class Node:
         self.__sum = 0
         self.__count = 0
         self.__median = None
+        if value is not None:
+            self.set_value(value)
 
     # sum
     def __add_to_sum(self, value):
@@ -23,10 +25,13 @@ class Node:
         return self.__sum
 
     # count
-    def __add_to_count(self):
+    def __add_to_count(self, count=None):
         if self.__parent:
-            self.__parent.__add_to_count()
-        self.__count += 1
+            self.__parent.__add_to_count(count)
+        if count != None:
+            self.__count += count
+        else:
+            self.__count += 1
     
     def __sub_from_count(self):
         if self.__parent:
@@ -48,7 +53,7 @@ class Node:
 
     def __get_values(self):
         values = []
-        if self.__value:
+        if self.__value is not None:
             values.append(self.__value)
         if self.__left:
             values.extend(self.__left.__get_values())
@@ -61,10 +66,12 @@ class Node:
         if self.__parent:
             self.__parent.__recalculate_median()
         values = sorted(self.__get_values())
-        if self.__count % 2:
-            self.__median = values[int(self.__count / 2)]
-        else:
+        if self.__count == 1:
+            self.__median = values[0]
+        elif self.__count % 2 == 0:
             self.__median = (values[int(self.__count / 2) - 1] + values[int(self.__count / 2)]) / 2
+        else:
+            self.__median = values[int(self.__count / 2)]
 
     # setting new value
     def set_value(self, value):
@@ -77,7 +84,7 @@ class Node:
         # if new
         else:
             self.__add_to_count()
-            self.__median = value
+            # self.__median = value
 
         self.__value = value
         if self.__value != None:
@@ -86,7 +93,8 @@ class Node:
         self.__recalculate_median()
 
     def __update_node(self, node):
-        self.__count += node.__count
+        # self.__count += node.__count
+        self.__add_to_count(node.__count)
         self.__sum += node.__sum
         self.__recalculate_median()
 
