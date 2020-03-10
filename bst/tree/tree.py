@@ -21,21 +21,21 @@ class Tree:
         else:
             self.root.add_value(value)
 
-    def length(self):
+    def get_count(self):
         if self.root:
-            return self.root.length()
+            return self.root.get_count()
         return 0
     
-    def avg(self):
+    def get_avg(self):
         if self.root:
-            return self.root.avg()
+            return self.root.get_avg()
     
-    def inorder_traversal(self):
+    def get_inorder_traversal(self):
         if self.root:
-            return self.root.inorder_traversal()
+            return self.root.get_inorder_traversal()
     
-    def median(self):
-        traversal = self.inorder_traversal()
+    def get_median(self):
+        traversal = self.get_inorder_traversal()
         traversal_len = len(traversal)
         if traversal_len % 2:
             return traversal[(traversal_len - 1) // 2]

@@ -36,12 +36,12 @@ class Node:
                 self.__left = Node(value)
                 return self.__left
 
-    def length(self):
+    def get_count(self):
         counter = 1
         if self.__left:
-            counter += self.__left.length()
+            counter += self.__left.get_count()
         if self.__right:
-            counter += self.__right.length()
+            counter += self.__right.get_count()
         return counter
     
     def get_levels(self):
@@ -58,16 +58,16 @@ class Node:
             return 1 + left_levels
         return 1 + right_levels
 
-    def avg(self):
-        return self.get_sum() / self.length()
+    def get_avg(self):
+        return self.get_sum() / self.get_count()
     
-    def inorder_traversal(self):
+    def get_inorder_traversal(self):
         res = []
         if self.__left:
-            res.extend(self.__left.inorder_traversal())
+            res.extend(self.__left.get_inorder_traversal())
         res.append(self.__value)
         if self.__right:
-            res.extend(self.__right.inorder_traversal())
+            res.extend(self.__right.get_inorder_traversal())
         return res
     
     def __print(self, space=0):
